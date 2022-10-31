@@ -6,6 +6,7 @@
 
     <groupId>com.github.manikmagar</groupId>
     <artifactId>sample-maven-app</artifactId>
+    <packaging>pom</packaging>
     <version>0.0.3</version>
 
     <name>Sample Maven App</name>
