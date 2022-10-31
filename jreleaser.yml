@@ -1,0 +1,70 @@
+project:
+  name: sample-maven-app
+  description: sample-maven-app
+  longDescription: |
+    A sample app for publishing to maven central
+
+  links:
+    homepage: https://javastreets.com
+    documentation: https://github.com/manikmagar/
+    license: https://github.com/manikmagar/mulefd/blob/main/LICENSE
+    contribute: https://github.com/manikmagar/mulefd/blob/main/CONTRIBUTING.adoc
+  authors:
+    - Manik Magar
+  license: MIT
+  inceptionYear: 2022
+  tags:
+    - maven
+  java:
+    groupId: com.github.manikmagar
+    version: 8
+
+release:
+  github:
+    overwrite: true
+    draft: false
+    sign: true
+    releaseName: '{{tagName}}'
+    skipTag: true
+    milestone:
+      close: false
+    changelog:
+      formatted: always
+      preset: conventional-commits
+      format: '- {{commitShortHash}} {{commitTitle}}'
+      skipMergeCommits: true
+      contributors:
+        format: '- {{contributorName}}{{#contributorUsernameAsLink}} ({{.}}){{/contributorUsernameAsLink}}'
+      labelers:
+        - label: 'dependencies'
+          title: 'chore(deps):'
+          order: 130
+      categories:
+        - title: '⚙️  Dependencies'
+          key: 'dependencies'
+          order: 80
+          labels:
+            - 'dependencies'
+      hide:
+        categories:
+          - 'merge'
+        contributors:
+          - 'GitHub'
+
+checksum:
+  individual: true
+
+signing:
+  active: always
+  armored: true
+
+deploy:
+  maven:
+    nexus2:
+      maven-central:
+        active: ALWAYS
+        url: https://s01.oss.sonatype.org/service/local
+        closeRepository: true
+        releaseRepository: true
+        stagingRepositories:
+          - target/staging-deploy
