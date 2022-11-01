@@ -64,6 +64,7 @@ deploy:
       maven-central:
         active: ALWAYS
         url: https://oss.sonatype.org/service/local
+        applyMavenCentralRules: true
         closeRepository: true
         releaseRepository: true
         stagingRepositories:
