@@ -7,7 +7,7 @@
     <groupId>com.github.manikmagar</groupId>
     <artifactId>sample-maven-app</artifactId>
     <packaging>pom</packaging>
-    <version>0.0.3</version>
+    <version>0.0.4</version>
 
     <name>Sample Maven App</name>
     <description>Sample Maven Application publishing to Maven Central</description>
